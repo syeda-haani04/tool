@@ -1,6 +1,7 @@
 package com.internship.tool.controller;
 
 import com.internship.tool.service.ProjectService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/projects")
     public List<String> getProjects() {
         return projectService.getProjects();
