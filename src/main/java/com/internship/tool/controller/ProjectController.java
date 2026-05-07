@@ -1,5 +1,6 @@
 package com.internship.tool.controller;
 
+import com.internship.tool.entity.Project;
 import com.internship.tool.service.ProjectService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class ProjectController {
     }
 
     @GetMapping("/projects")
-    public List<String> getProjects() {
-        return projectService.getProjects();
+    public List<Project> getProjects() {
+        return projectService.getAllProjects();
     }
 }
